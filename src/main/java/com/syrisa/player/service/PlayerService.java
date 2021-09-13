@@ -1,4 +1,5 @@
 package com.syrisa.player.service;
 
-public interface PlayerService {
+public interface PlayerService<T>{
+    T createPlayer(T t);
 }
