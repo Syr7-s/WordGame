@@ -7,8 +7,10 @@ import com.syrisa.utility.NumberGenerate;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class PlayerServiceImpl {
     public static List<Player> players = new ArrayList<>();
@@ -24,9 +26,7 @@ public class PlayerServiceImpl {
             while ((line = reader.readLine()) !=null) {
             collectPlayer.collect(line);
             }
-            Arrays.asList(players).stream().forEach(System.out::println);
-        } catch (FileNotFoundException exception) {
-            exception.printStackTrace();
+            Stream.of(players).forEach(System.out::println);
         } catch (IOException exception) {
             exception.printStackTrace();
         }
