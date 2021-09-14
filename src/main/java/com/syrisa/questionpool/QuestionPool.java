@@ -19,15 +19,15 @@ public class QuestionPool {
         }
     }
 
-    public QuestionPoolService pool = (question) ->{
-        if (!questionPool.containsKey(question.getQuestionType())){
+    public QuestionPoolService pool = (question) -> {
+        if (!questionPool.containsKey(question.getQuestionType())) {
             List<Question> questionList = new QuestionStoreProduct().storeProduct.questionList(question.getQuestionType());
             questionList.add(question);
-            questionPool.put(question.getQuestionType(),questionList);
-        }else{
+            questionPool.put(question.getQuestionType(), questionList);
+        } else {
             List<Question> questionList = questionPool.get(question.getQuestionType());
             questionList.add(question);
-            questionPool.put(question.getQuestionType(),questionList);
+            questionPool.put(question.getQuestionType(), questionList);
         }
         return questionPool;
     };
