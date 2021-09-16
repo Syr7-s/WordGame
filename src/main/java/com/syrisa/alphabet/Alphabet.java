@@ -1,6 +1,8 @@
 package com.syrisa.alphabet;
 
-public class Alphabet {
+import com.syrisa.alphabet.service.AlphabetService;
+
+public class Alphabet implements AlphabetService {
     private static Alphabet instance = null;
     private static final Object LOCK = new Object();
 

@@ -9,4 +9,5 @@ public interface PointWheel {
             "PASS", "700", "800", "900", "100", "200", "0", "1000", "150", "250", "350", "1500", "PASS", "2000", "PASS",
             "2500", "BANKRUPTCY", "400", "PASS", "500", "600", "3000", "PASS", "4000", "BANKRUPTCY", "5000", "PASS",
             "150", "250", "350", "450", "550", "1000", "650", "750", "850", "950");
+    int POINT_WHELL_SIZE = pointWheel.size();
 }
