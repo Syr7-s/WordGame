@@ -1,14 +1,14 @@
 package com.syrisa.gamearea;
 
 import com.syrisa.alphabet.Alphabet;
+import com.syrisa.alphabet.service.AlphabetService;
 import com.syrisa.player.PlayerOrder;
 import com.syrisa.point.service.PointWheel;
 import com.syrisa.question.Question;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
+import java.util.stream.Stream;
 
 public class GameArea {
     public static List<String> players = new ArrayList<>();
@@ -36,15 +36,14 @@ public class GameArea {
         return order;
     }
 
-    public String[] drawGameArea(String[] answer) {
+    public Consumer<String[]> drawGameArea = answer -> {
         System.out.println("******************************************************************");
-        for (int i = 0; i < answer.length; i++) {
-            System.out.print("[" + answer[i] + "]");
+        for (String s : answer) {
+            System.out.print("[" + s + "]");
         }
         System.out.println();
         System.out.println("******************************************************************");
-        return answer;
-    }
+    };
 
     public Boolean findAlphabet(String alphabet, String answer, String[] answerArray, Integer playerOrder) {
         count = 0;
@@ -58,7 +57,7 @@ public class GameArea {
         pointNum *= count;
         System.out.println(players.get(playerOrder) + " earn " + pointNum + " points");
         pointCollect(playerOrder, pointNum);
-        drawGameArea(answerArray);
+        drawGameArea.accept(answerArray);
         return isCharactersHaveInAnswer.test(count);
     }
 
@@ -72,7 +71,7 @@ public class GameArea {
         }
     }
 
-    private final Predicate<Integer> isCharactersHaveInAnswer = count -> count != 0;
+    Predicate<Integer> isCharactersHaveInAnswer = count -> count != 0;
 
     public void pointBoard() {
         if (playerPoints.isEmpty()) {
@@ -127,14 +126,14 @@ public class GameArea {
 
     Predicate<Integer> isZero = count -> count == 0;
 
-    private final Consumer<String> vowelAndConsonantAlphabetCount = (answer) -> {
+    private final Consumer<String> vowelAndConsonantAlphabetCount = answer -> {
         countVowel = 0;
         countConsonant = 0;
         countSpace = 0;
         for (int i = 0; i < answer.length(); i++) {
-            if (Alphabet.VOWEL.contains(answer.charAt(i))) {
+            if (AlphabetService.VOWEL.contains(answer.charAt(i))) {
                 countVowel++;
-            } else if (Alphabet.CONSONANT.contains(answer.charAt(i))) {
+            } else if (AlphabetService.CONSONANT.contains(answer.charAt(i))) {
                 countConsonant++;
             } else if (" ".equals(String.valueOf(answer.charAt(i)))) {
                 countSpace++;
@@ -155,66 +154,68 @@ public class GameArea {
             System.out.println("Spin the wheel........");
             point = PointWheel.pointWheel.get(new Random().nextInt(PointWheel.POINT_WHELL_SIZE));
             if (point.equals("BANKRUPTCY") || point.equals("PASS")) {
-                playerOrderKept = playerWillBankruptcyOrPass(playerOrderKept, point);
+                playerOrderKept = playerWillBankruptcyOrPass.apply(playerOrderKept, point).get();
             } else {
-                playerOrderKept = playerWillChooseCharacter(playerOrderKept, question, order.getPlayerName());
+                pointNum = Integer.valueOf(point);
+                System.out.println(pointNum);
+                playerOrderKept = playerWillChooseCharacter.apply(question, order.getPlayerName()).apply(playerOrderKept);
             }
         }
     }
 
+    Function<Integer, Integer> playerOrderFunc = order -> order == 2 ? 0 : (++order);
 
-    private Integer playerWillBankruptcyOrPass(Integer playerOrderKept, String point) {
-        System.out.println(players.get(playerOrderKept) + " is " + point);
-        return playerOrderKept == 2 ? 0 : (++playerOrderKept);
-    }
+    BiFunction<Integer, String, Supplier<Integer>> playerWillBankruptcyOrPass = (playerOrder, score) -> () -> {
+        System.out.println(players.get(playerOrder) + " is " + score);
+        return playerOrderFunc.apply(playerOrder);
+    };
 
-    private Integer playerWillChooseCharacter(Integer playerOrderKept, Question question, String name) {
-        pointNum = Integer.valueOf(point);
-        System.out.println(pointNum);
-        playerChooseACharacter(playerOrderKept, question, name);
-        return playerOrderKept == 2 ? 0 : (++playerOrderKept);
-    }
-
-    private void playerChooseACharacter(Integer playerOrder, Question question, String player) {
-        String choosedCharacter;
-        Arrays.asList(choosedConsonantOrVowelAlphabet).stream().forEach(System.out::print);
+    private final Function<String, String> enterTheCharacter = player -> {
         System.out.println();
-        if (!isCountConsonantZero) {
-            Arrays.asList(Alphabet.CONSONANT).stream().forEach(System.out::println);
-            choosedCharacter = enterTheCharacter.apply(player);
-            boolean isConsonantCharacter = Alphabet.CONSONANT.contains(choosedCharacter.charAt(0));
+        System.out.print(player + " is choosing alphabet.(Consonant or Vowel) : ");
+        return scanner.next();
+    };
+
+    BiFunction<Integer, Question, Consumer<String>> playerChooseACharacter = (playerOrder, question) -> (playerName) -> {
+        String selectedCharacter;
+        Stream.of(choosedConsonantOrVowelAlphabet).forEach(System.out::println);
+        System.out.println();
+        if (Boolean.FALSE.equals(isCountConsonantZero)) {
+            Stream.of(AlphabetService.CONSONANT).forEach(System.out::print);
+            selectedCharacter = enterTheCharacter.apply(playerName);
+            boolean isConsonantCharacter = AlphabetService.CONSONANT.contains(selectedCharacter.charAt(0));
             if (isConsonantCharacter) {
-                fillTheArrayWithConsonantAlphabet(playerOrder, question, choosedCharacter, isCountConsonantZero);
+                fillTheArrayWithConsonantAlphabet(playerOrder, question, selectedCharacter);
             } else {
                 System.out.println("Please enter the Consonant character.");
             }
         } else {
-            Arrays.asList(Alphabet.VOWEL).stream().forEach(System.out::print);
-            choosedCharacter = enterTheCharacter.apply(player);
-            boolean isVowelCharacter = Alphabet.VOWEL.contains(choosedCharacter.charAt(0));
+            Stream.of(AlphabetService.VOWEL).forEach(System.out::print);
+            selectedCharacter = enterTheCharacter.apply(playerName);
+            boolean isVowelCharacter = AlphabetService.VOWEL.contains(selectedCharacter.charAt(0));
             if (isVowelCharacter) {
-                fillTheArrayWithVowelAlphabet(playerOrder, question, choosedCharacter, isCountConsonantZero);
-            }else{
+                fillTheArrayWithVowelAlphabet(playerOrder, question, selectedCharacter);
+            } else {
                 System.out.println("Please enter the Vowel character");
             }
         }
         isCountConsonantZero = isZero.test(countConsonant);
         isCountVowelZero = isZero.test(countVowel);
         isConsonantAndVowelCharacterCountZero();
-
-    }
-
-    private final Function<String, String> enterTheCharacter = (player) -> {
-        System.out.println();
-        System.out.print(player + " is choosing alphabet.(Consonant or Vowel) : ");
-        return scanner.next();
     };
 
-    private void fillTheArrayWithConsonantAlphabet(Integer playerOrder, Question question, String choosedCharacter, Boolean isCountConsonantZero) {
-        if (!choosedConsonantOrVowelAlphabet.contains(choosedCharacter)) {
-            choosedConsonantOrVowelAlphabet.add(choosedCharacter);
-            boolean result = findAlphabet(choosedCharacter, question.getAnswer(), answerArray, playerOrder);
-            countConsonant = result ? (countConsonant -= count) : countConsonant;
+
+    BiFunction<Question, String, Function<Integer, Integer>> playerWillChooseCharacter = (question, name) -> playerOrder -> {
+        playerChooseACharacter.apply(playerOrder, question).accept(name);
+        return playerOrderFunc.apply(playerOrder);
+    };
+
+
+    private void fillTheArrayWithConsonantAlphabet(Integer playerOrder, Question question, String selectedCharacter) {
+        if (!choosedConsonantOrVowelAlphabet.contains(selectedCharacter)) {
+            choosedConsonantOrVowelAlphabet.add(selectedCharacter);
+            boolean result = findAlphabet(selectedCharacter, question.getAnswer(), answerArray, playerOrder);
+            countConsonant = countAlphabetCheck.apply(count, result).apply(countConsonant);
             System.out.println("Count Consonant : " + countConsonant);
             System.out.println(result ? "Character found." : "Character is not found");
             isCountConsonantZero = isZero.test(countConsonant);
@@ -223,26 +224,29 @@ public class GameArea {
         }
     }
 
-    private void fillTheArrayWithVowelAlphabet(Integer playerOrder, Question question, String choosedCharacter, Boolean isCountConsonantZero) {
-        if (!choosedConsonantOrVowelAlphabet.contains(choosedCharacter)) {
-            choosedConsonantOrVowelAlphabet.add(choosedCharacter);
-            boolean result = findAlphabet(choosedCharacter, question.getAnswer(), answerArray, playerOrder);
-            countVowel = result ? (countVowel -= count) : countVowel;
-            System.out.println("Count Vowel : "+countVowel);
+    BiFunction<Integer, Boolean, Function<Integer, Integer>> countAlphabetCheck = (count, result) -> countAlphabet -> Boolean.TRUE.equals(result) ? countAlphabet - count : countAlphabet;
+
+    private void fillTheArrayWithVowelAlphabet(Integer playerOrder, Question question, String selectedCharacter) {
+        if (!choosedConsonantOrVowelAlphabet.contains(selectedCharacter)) {
+            choosedConsonantOrVowelAlphabet.add(selectedCharacter);
+            boolean result = findAlphabet(selectedCharacter, question.getAnswer(), answerArray, playerOrder);
+            countVowel = countAlphabetCheck.apply(count, result).apply(countVowel);
+            System.out.println("Count Vowel : " + countVowel);
             System.out.println(result ? "Character found." : "Character is not found");
-        }else {
+        } else {
             System.out.println("Character is said.");
         }
     }
+
     private void isConsonantAndVowelCharacterCountZero() {
         if (isCountConsonantZero && isCountVowelZero) {
-            for (int i=0;i< answerArray.length;i++){
+            for (int i = 0; i < answerArray.length; i++) {
                 if (answerArray[i] == null) {
                     answerArray[i] = " ";
                 }
             }
             System.out.println("***************************************************************");
-            drawGameArea(answerArray);
+            drawGameArea.accept(answerArray);
             System.out.println("***************************************************************");
             System.out.println("Game Over");
             isAnswerFound = true;
