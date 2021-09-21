@@ -176,7 +176,7 @@ public class GameArea {
         return scanner.next();
     };
 
-    BiFunction<Integer, Question, Consumer<String>> playerChooseACharacter = (playerOrder, question) -> (playerName) -> {
+    BiFunction<Integer, Question, Consumer<String>> playerChooseACharacter = (playerOrder, question) -> playerName -> {
         String selectedCharacter;
         Stream.of(choosedConsonantOrVowelAlphabet).forEach(System.out::println);
         System.out.println();
