@@ -95,10 +95,17 @@ public class GameArea {
                     System.out.println("Game is ending");
                     return;
                 case "C":
-                    startGame();
-                    playerOrderKept = 0;
-                    isAnswerFound = false;
-                    choosedConsonantOrVowelAlphabet = new ArrayList<>();
+                    if (isZero.test(questionPool.size())) {
+                        System.out.println("Question is not stay on the list.Game is finishing.");
+                        return;
+                    } else {
+                        startGame();
+                        playerOrderKept = 0;
+                        isAnswerFound = false;
+                        choosedConsonantOrVowelAlphabet = new ArrayList<>();
+                    }
+                    //startGame();
+
                     break;
                 case "P":
                     pointBoard();
@@ -110,12 +117,16 @@ public class GameArea {
         }
     }
 
+    Question question;
+
     private void startGame() {
         String questionVarious = questionType.get(new Random().nextInt(questionType.size()));
+
         System.out.println("Question Type: " + questionVarious);
+
         if (questionPool.containsKey(questionVarious)) {
             List<Question> questions = questionPool.get(questionVarious);
-            Question question = questions.get(new Random().nextInt(questions.size()));
+            question = questions.get(new Random().nextInt(questions.size()));
             System.out.println("Question is that: " + question.getQuestion());
             System.out.println(question.getAnswer().length() + " character.");
             answerArray = new String[question.getAnswer().length()];
@@ -248,9 +259,36 @@ public class GameArea {
             System.out.println("***************************************************************");
             drawGameArea.accept(answerArray);
             System.out.println("***************************************************************");
+            removeQuestionFromQuestionPool.accept(question);
+            System.out.println("This is question : " + question);
             System.out.println("Game Over");
             isAnswerFound = true;
         }
     }
 
+
+
+    Consumer<Question> removeQuestionFromQuestionPool = question -> {
+        String questionVarious = question.getQuestionType();
+        List<Question> questionList = questionPool.get(questionVarious);
+        if (questionList.size() <= 1) {
+            Question question1 = questionList.get(0);
+            questionPool.remove(question1.getQuestionType());
+            questionType.remove(questionVarious);
+        } else {
+            for (Question q : questionList) {
+                if (q.getQuestionID() == question.getQuestionID()) {
+                    questionPool.get(questionVarious).remove(q);
+                }
+            }
+        }
+
+        Set<String> keys = questionPool.keySet();
+        for (String key : keys) {
+            List<Question> questions = questionPool.get(key);
+            for (Question q : questions) {
+                System.out.println(q);
+            }
+        }
+    };
 }
