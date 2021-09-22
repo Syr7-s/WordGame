@@ -222,22 +222,23 @@ public class GameArea {
         isConsonantAndVowelCharacterCountZero();
     };
 
-
+    boolean result;
     BiFunction<Question, String, Function<Integer, Integer>> playerWillChooseCharacter = (question, name) -> playerOrder -> {
         playerChooseACharacter.apply(playerOrder, question).accept(name);
-        return playerOrderFunc.apply(playerOrder);
+        return this.result ? playerOrder : playerOrderFunc.apply(playerOrder);
     };
 
 
     private void fillTheArrayWithConsonantAlphabet(Integer playerOrder, Question question, String selectedCharacter) {
         if (!choosedConsonantOrVowelAlphabet.contains(selectedCharacter)) {
             choosedConsonantOrVowelAlphabet.add(selectedCharacter);
-            boolean result = findAlphabet(selectedCharacter, question.getAnswer(), answerArray, playerOrder);
+            result = findAlphabet(selectedCharacter, question.getAnswer(), answerArray, playerOrder);
             countConsonant = countAlphabetCheck.apply(count, result).apply(countConsonant);
             System.out.println("Count Consonant : " + countConsonant);
-            System.out.println(result ? "Character found." : "Character is not found");
+            System.out.println(result ? "Character found. "+players.get(playerOrder)+" will once again" : "Character is not found");
             isCountConsonantZero = isZero.test(countConsonant);
         } else {
+            result=false;
             System.out.println("Character is said.");
         }
     }
@@ -247,11 +248,12 @@ public class GameArea {
     private void fillTheArrayWithVowelAlphabet(Integer playerOrder, Question question, String selectedCharacter) {
         if (!choosedConsonantOrVowelAlphabet.contains(selectedCharacter)) {
             choosedConsonantOrVowelAlphabet.add(selectedCharacter);
-            boolean result = findAlphabet(selectedCharacter, question.getAnswer(), answerArray, playerOrder);
+            result = findAlphabet(selectedCharacter, question.getAnswer(), answerArray, playerOrder);
             countVowel = countAlphabetCheck.apply(count, result).apply(countVowel);
             System.out.println("Count Vowel : " + countVowel);
-            System.out.println(result ? "Character found." : "Character is not found");
+            System.out.println(result ? "Character found. "+players.get(playerOrder)+" will once again" : "Character is not found");
         } else {
+            result=false;
             System.out.println("Character is said.");
         }
     }

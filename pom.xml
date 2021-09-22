@@ -83,17 +83,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.2</version>
+        <version>3.8.0</version>
         <configuration>
-          <source>8</source>
-          <target>8</target>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.syrisa.App</mainClass>
-            </manifest>
-          </archive>
+
+
         </configuration>
       </plugin>
     </plugins>
@@ -106,7 +99,16 @@
            <target>8</target>
          </configuration>
        </plugin>
-     </plugins>-->
+     </plugins>
+       <source>8</source>
+          <target>8</target>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>com.syrisa.App</mainClass>
+            </manifest>
+          </archive>-->
     <finalName>WordGame</finalName>
   </build>
 </project>
