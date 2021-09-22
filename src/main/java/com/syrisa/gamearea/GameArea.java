@@ -95,12 +95,6 @@ public class GameArea {
                     System.out.println("Game is ending");
                     return;
                 case "C":
-                   /* if (isZero.test(questionPool.size())) {
-                        System.out.println("Question is not stay on the list.Game is finishing.");
-                        return;
-                    } else {
-                        startGame();
-                    }*/
                     chooseContinue.apply(questionPool.size()).accept("Question is not stay on the list.Game is finishing.");
                     playerOrderKept = 0;
                     isAnswerFound = false;
@@ -118,7 +112,7 @@ public class GameArea {
 
     Predicate<Integer> isZero = count -> count == 0;
 
-    Function<Integer, Consumer<String>> chooseContinue = (size) -> message -> {
+    Function<Integer, Consumer<String>> chooseContinue = size -> message -> {
         if (isZero.test(size)) {
             System.out.println(message);
             System.exit(0);
@@ -133,9 +127,7 @@ public class GameArea {
 
     private void startGame() {
         String questionVarious = questionType.get(new Random().nextInt(questionType.size()));
-
         System.out.println("Question Type: " + questionVarious);
-
         if (questionPool.containsKey(questionVarious)) {
             List<Question> questions = questionPool.get(questionVarious);
             question = questions.get(new Random().nextInt(questions.size()));
@@ -189,6 +181,10 @@ public class GameArea {
 
     BiFunction<Integer, String, Supplier<Integer>> playerWillBankruptcyOrPass = (playerOrder, score) -> () -> {
         System.out.println(players.get(playerOrder) + " is " + score);
+        if (score.equals("BANKRUPTCY")) {
+            String playerName = players.get(playerOrder);
+            playerPoints.put(playerName, 0);
+        }
         return playerOrderFunc.apply(playerOrder);
     };
 
@@ -270,33 +266,16 @@ public class GameArea {
             System.out.println("***************************************************************");
             drawGameArea.accept(answerArray);
             System.out.println("***************************************************************");
-            //removeQuestionFromQuestionPool.accept(question);
-            removeQuestionFromQuestionPool(question);
+            removeQuestionFromQuestionPool.accept(question);
             System.out.println("Game Over");
             isAnswerFound = true;
         }
     }
 
- /*   Consumer<Question> removeQuestionFromQuestionPool = question -> {
+    Consumer<Question> removeQuestionFromQuestionPool = question -> {
         String questionVarious = question.getQuestionType();
         List<Question> questionList = questionPool.get(questionVarious);
-        if (questionList.size() <= 1) {
-            Question question1 = questionList.get(0);
-            questionPool.remove(question1.getQuestionType());
-            questionType.remove(questionVarious);
-        } else {
-            for (Question q : questionList) {
-                if (q.getQuestionID() == question.getQuestionID()) {
-                    questionPool.get(questionVarious).remove(q);
-                }
-            }
-        }
-    };*/
-
-    private void removeQuestionFromQuestionPool(Question question) {
-        String questionVarious = question.getQuestionType();
-        List<Question> questionList = questionPool.get(questionVarious);
-        try{
+        try {
             if (questionList.size() <= 1) {
                 Question question1 = questionList.get(0);
                 questionPool.remove(question1.getQuestionType());
@@ -308,8 +287,8 @@ public class GameArea {
                     }
                 }
             }
-        }catch (Exception exception){
+        } catch (Exception exception) {
             System.err.println(exception.getMessage());
         }
-    }
+    };
 }
