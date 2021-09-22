@@ -95,17 +95,16 @@ public class GameArea {
                     System.out.println("Game is ending");
                     return;
                 case "C":
-                    if (isZero.test(questionPool.size())) {
+                   /* if (isZero.test(questionPool.size())) {
                         System.out.println("Question is not stay on the list.Game is finishing.");
                         return;
                     } else {
                         startGame();
-                        playerOrderKept = 0;
-                        isAnswerFound = false;
-                        choosedConsonantOrVowelAlphabet = new ArrayList<>();
-                    }
-                    //startGame();
-
+                    }*/
+                    chooseContinue.apply(questionPool.size()).accept("Question is not stay on the list.Game is finishing.");
+                    playerOrderKept = 0;
+                    isAnswerFound = false;
+                    choosedConsonantOrVowelAlphabet = new ArrayList<>();
                     break;
                 case "P":
                     pointBoard();
@@ -116,6 +115,19 @@ public class GameArea {
             }
         }
     }
+
+    Predicate<Integer> isZero = count -> count == 0;
+
+    Function<Integer, Consumer<String>> chooseContinue = (size) -> message -> {
+        if (isZero.test(size)) {
+            System.out.println(message);
+            System.exit(0);
+        } else {
+            startGame();
+        }
+
+    };
+
 
     Question question;
 
@@ -135,7 +147,6 @@ public class GameArea {
         }
     }
 
-    Predicate<Integer> isZero = count -> count == 0;
 
     private final Consumer<String> vowelAndConsonantAlphabetCount = answer -> {
         countVowel = 0;
@@ -259,16 +270,14 @@ public class GameArea {
             System.out.println("***************************************************************");
             drawGameArea.accept(answerArray);
             System.out.println("***************************************************************");
-            removeQuestionFromQuestionPool.accept(question);
-            System.out.println("This is question : " + question);
+            //removeQuestionFromQuestionPool.accept(question);
+            removeQuestionFromQuestionPool(question);
             System.out.println("Game Over");
             isAnswerFound = true;
         }
     }
 
-
-
-    Consumer<Question> removeQuestionFromQuestionPool = question -> {
+ /*   Consumer<Question> removeQuestionFromQuestionPool = question -> {
         String questionVarious = question.getQuestionType();
         List<Question> questionList = questionPool.get(questionVarious);
         if (questionList.size() <= 1) {
@@ -282,13 +291,25 @@ public class GameArea {
                 }
             }
         }
+    };*/
 
-        Set<String> keys = questionPool.keySet();
-        for (String key : keys) {
-            List<Question> questions = questionPool.get(key);
-            for (Question q : questions) {
-                System.out.println(q);
+    private void removeQuestionFromQuestionPool(Question question) {
+        String questionVarious = question.getQuestionType();
+        List<Question> questionList = questionPool.get(questionVarious);
+        try{
+            if (questionList.size() <= 1) {
+                Question question1 = questionList.get(0);
+                questionPool.remove(question1.getQuestionType());
+                questionType.remove(questionVarious);
+            } else {
+                for (Question q : questionList) {
+                    if (q.getQuestionID() == question.getQuestionID()) {
+                        questionPool.get(questionVarious).remove(q);
+                    }
+                }
             }
+        }catch (Exception exception){
+            System.err.println(exception.getMessage());
         }
-    };
+    }
 }
