@@ -280,7 +280,7 @@ public class GameArea {
         } catch (WordGameExceptionService wordGameExceptionService) {
             System.out.println(wordGameExceptionService.getMessage());
         }finally {
-            System.out.println("Continue");
+            isAnswerFound=true;
         }
     }
 
