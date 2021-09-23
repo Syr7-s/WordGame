@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Word-Game:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="53249679-6fad-4d83-8922-4b7525733c15" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Word-Game/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Word-Game/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Word-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Word-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/alphabet/Alphabet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/alphabet/service/AlphabetService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/exceptions/QuestionNotRemovedFromQuestionPoolException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/exceptions/WordGameExceptionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/gamearea/GameArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/player/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/player/PlayerOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/player/PlayerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/player/service/PlayerFunc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/player/service/PlayerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/point/Point.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/point/PointAccountServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/point/service/PointAccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/point/service/PointWheel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/question/Question.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/question/QuestionImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/question/service/QuestionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/questionpool/QuestionPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/questionpool/QuestionStoreProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/questionpool/service/QuestionPoolService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/questionpool/service/QuestionStoreProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/utility/NumberGenerate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/utility/service/NumberGenerateService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/wordgame/WordGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/syrisa/wordgame/service/WordGameService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/syrisa/AppTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="docker-desktop" />
+    <option name="namespace" value="default" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="1yYOAti3QcrRuPJXfnAfRiLhT2q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15332031" />
+    <property name="project.structure.side.proportion" value="0.31669268" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Casper\Desktop\WordGame\Word-Game" />
+      <recent name="C:\Users\Casper\Desktop\WordGame\Word-Game\src\com\syrisa" />
+      <recent name="C:\Users\Casper\Desktop\WordGame\Word-Game\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.syrisa.App" />
+      <module name="Word-Game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.syrisa.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53249679-6fad-4d83-8922-4b7525733c15" name="Changes" comment="" />
+      <created>1632424917307</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632424917307</updated>
+      <workItem from="1632424918976" duration="3571000" />
+      <workItem from="1632428625615" duration="37000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial-commit">
+      <created>1632425173669</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632425173669</updated>
+    </task>
+    <task id="LOCAL-00002" summary="necessary classes were added to the Word-Game">
+      <created>1632425665315</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632425665315</updated>
+    </task>
+    <task id="LOCAL-00003" summary="GameArea was edited.">
+      <created>1632426163362</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1632426163362</updated>
+    </task>
+    <task id="LOCAL-00004" summary="GameArea, PlayerServiceImpl and QuestionImpl were edited.">
+      <created>1632428503599</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632428503599</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+    <MESSAGE value="initial-commit" />
+    <MESSAGE value="necessary classes were added to the Word-Game" />
+    <MESSAGE value="GameArea was edited." />
+    <MESSAGE value="GameArea, PlayerServiceImpl and QuestionImpl were edited." />
+    <option name="LAST_COMMIT_MESSAGE" value="GameArea, PlayerServiceImpl and QuestionImpl were edited." />
+  </component>
+</project>
