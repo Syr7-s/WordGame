@@ -1,0 +1,4 @@
+Movie,Brad Pitt ilk filmi?,A RIVER RUNS THROUGH IT
+Sportier,Avrupa Yılın Oyuncusu?,JORGINHO FRELLO
+Single,Lose Yourself i kim soyluyor?,EMINEM
+Sportier,Cristiano Ronaldo hangi takima transfer oldu?,MANCHESTER UNITED
