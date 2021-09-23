@@ -272,14 +272,12 @@ public class GameArea {
                 System.out.println("***************************************************************");
                 drawGameArea.accept(answerArray);
                 System.out.println("***************************************************************");
-                //removeQuestionFromQuestionPool.remove(question);
                 removeQuestionFromQuestionPool.accept(question);
                 System.out.println("Game Over");
                 isAnswerFound = true;
             }
         } catch (WordGameExceptionService wordGameExceptionService) {
             System.out.println(wordGameExceptionService.getMessage());
-        }finally {
             isAnswerFound=true;
         }
     }

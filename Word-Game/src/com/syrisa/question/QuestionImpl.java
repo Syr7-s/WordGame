@@ -31,7 +31,8 @@ public class QuestionImpl {
     };
 
     public static Map<String, List<Question>> readQuestionFromFile() {
-        String path = "C:\\Users\\Casper\\Desktop\\WordGame\\Word-Game\\questions.txt";
+        String path = "questions.txt";
+        //C:\Users\Casper\Desktop\WordGame\Word-Game\questions.txt
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8))) {
             String line = null;
             while ((line = reader.readLine()) != null) {

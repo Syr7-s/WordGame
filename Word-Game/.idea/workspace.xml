@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Word-Game:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="53249679-6fad-4d83-8922-4b7525733c15" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/alphabet/Alphabet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/alphabet/service/AlphabetService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Word_Game_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/Word_Game_jar/Word-Game.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/exceptions/QuestionNotRemovedFromQuestionPoolException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/exceptions/WordGameExceptionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/gamearea/GameArea.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/player/Player.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/player/PlayerOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/player/PlayerServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/player/service/PlayerFunc.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/player/service/PlayerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/point/Point.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/point/PointAccountServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/point/service/PointAccountService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/point/service/PointWheel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/question/Question.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/question/QuestionImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/question/service/QuestionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/questionpool/QuestionPool.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/questionpool/QuestionStoreProduct.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/questionpool/service/QuestionPoolService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/questionpool/service/QuestionStoreProductService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/utility/NumberGenerate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/utility/service/NumberGenerateService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/wordgame/WordGame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Word-Game/com/syrisa/wordgame/service/WordGameService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/syrisa/gamearea/GameArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/syrisa/gamearea/GameArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/syrisa/player/PlayerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/syrisa/player/PlayerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/syrisa/question/QuestionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/syrisa/question/QuestionImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +82,9 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15332031" />
     <property name="project.structure.side.proportion" value="0.31669268" />
   </component>
   <component name="RecentsManager">
@@ -86,7 +122,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632424917307</updated>
-      <workItem from="1632424918976" duration="1136000" />
+      <workItem from="1632424918976" duration="3418000" />
     </task>
     <task id="LOCAL-00001" summary="initial-commit">
       <created>1632425173669</created>
@@ -102,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632425665315</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="GameArea was edited.">
+      <created>1632426163362</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1632426163362</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +155,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial-commit" />
     <MESSAGE value="necessary classes were added to the Word-Game" />
-    <option name="LAST_COMMIT_MESSAGE" value="necessary classes were added to the Word-Game" />
+    <MESSAGE value="GameArea was edited." />
+    <option name="LAST_COMMIT_MESSAGE" value="GameArea was edited." />
   </component>
 </project>

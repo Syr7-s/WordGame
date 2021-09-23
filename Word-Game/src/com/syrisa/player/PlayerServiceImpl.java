@@ -22,7 +22,7 @@ public class PlayerServiceImpl {
     };
 
     public static List<Player> readPlayerFromFile(){
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("C:\\Users\\Casper\\Desktop\\WordGame\\Word-Game\\players.txt")))) {
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("players.txt")))) {
             String line = null;
             while ((line = reader.readLine()) !=null) {
             collectPlayer.collect(line);
