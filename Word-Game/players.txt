@@ -1,3 +1,0 @@
-PlayerOne,P1
-PlayerTwo,P2
-PlayerThree,P3
