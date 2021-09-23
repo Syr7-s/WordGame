@@ -2,9 +2,12 @@ package com.syrisa.gamearea;
 
 
 import com.syrisa.alphabet.service.AlphabetService;
+import com.syrisa.exceptions.QuestionNotRemovedFromQuestionPoolException;
+import com.syrisa.exceptions.WordGameExceptionService;
 import com.syrisa.player.PlayerOrder;
 import com.syrisa.point.service.PointWheel;
 import com.syrisa.question.Question;
+import com.syrisa.wordgame.service.WordGameService;
 
 import java.util.*;
 import java.util.function.*;
@@ -259,22 +262,29 @@ public class GameArea {
     }
 
     private void isConsonantAndVowelCharacterCountZero() {
-        if (isCountConsonantZero && isCountVowelZero) {
-            for (int i = 0; i < answerArray.length; i++) {
-                if (answerArray[i] == null) {
-                    answerArray[i] = " ";
+        try{
+            if (isCountConsonantZero && isCountVowelZero) {
+                for (int i = 0; i < answerArray.length; i++) {
+                    if (answerArray[i] == null) {
+                        answerArray[i] = " ";
+                    }
                 }
+                System.out.println("***************************************************************");
+                drawGameArea.accept(answerArray);
+                System.out.println("***************************************************************");
+                //removeQuestionFromQuestionPool.remove(question);
+                removeQuestionFromQuestionPool.accept(question);
+                System.out.println("Game Over");
+                isAnswerFound = true;
             }
-            System.out.println("***************************************************************");
-            drawGameArea.accept(answerArray);
-            System.out.println("***************************************************************");
-            removeQuestionFromQuestionPool.accept(question);
-            System.out.println("Game Over");
-            isAnswerFound = true;
+        } catch (WordGameExceptionService wordGameExceptionService) {
+            System.out.println(wordGameExceptionService.getMessage());
+        }finally {
+            System.out.println("Continue");
         }
     }
 
-    Consumer<Question> removeQuestionFromQuestionPool = question -> {
+    WordGameService<Question> removeQuestionFromQuestionPool = (question) ->{
         String questionVarious = question.getQuestionType();
         List<Question> questionList = questionPool.get(questionVarious);
         try {
@@ -290,7 +300,7 @@ public class GameArea {
                 }
             }
         } catch (Exception exception) {
-            System.err.println(exception.getMessage());
+            throw new QuestionNotRemovedFromQuestionPoolException((exception.getMessage()));
         }
     };
 }
